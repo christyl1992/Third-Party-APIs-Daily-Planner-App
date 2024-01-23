@@ -5,16 +5,16 @@ var currentDate = dayjs();
 // Display the current date
 currentDay.innerText = currentDate.format("D MMM YYYY");
 
+
 //Function to change colour of row based on time 
 function updateColors() {
     var currentTime = dayjs().format('HH:mm');
-    
-    document.querySelectorAll('.time-block').forEach(function(timeElement) {
+    document.querySelectorAll('.time-block').forEach(function(timeElement, index) {
       var blockTime = timeElement.textContent.trim();
       var row = timeElement.closest('tr');
 
-      var blockTimeObj = dayjs(blockTime, 'HH:mm');
-      var currentTimeObj = dayjs(currentTime, 'HH:mm');
+      var blockTimeObj = dayjs(blockTime, 'HH:mm'); (blockTime, {format: 'HH:mm'});
+      var currentTimeObj = dayjs(currentTime, 'HH:mm');(blockTime, { format: 'HH:mm'});
 
       if (blockTimeObj.isBefore(currentTimeObj)) {
         row.classList.remove('present', 'future');
@@ -27,7 +27,7 @@ function updateColors() {
         row.classList.add('future');
       }
     });
-}
+  }
 
 
 //Function to save the tasks to local storage
@@ -65,5 +65,3 @@ function saveData(rowNumber) {
     loadData();
     updateColors();
   };
-
-

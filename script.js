@@ -5,12 +5,11 @@ var currentDate = dayjs();
 // Display the current date
 currentDay.innerText = currentDate.format("D MMM YYYY");
 
-
 //Function to change colour of row based on time 
 function updateColors() {
     var currentTime = dayjs().format('HH:mm');
     
-    document.querySelectorAll('.time-block.hour time').forEach(function(timeElement) {
+    document.querySelectorAll('.time-block').forEach(function(timeElement) {
       var blockTime = timeElement.textContent.trim();
       var row = timeElement.closest('tr');
 
@@ -29,5 +28,42 @@ function updateColors() {
       }
     });
 }
+
+
+//Function to save the tasks to local storage
+function saveData(rowNumber) {
+    // Get the input element for the corresponding row
+    var inputElement = document.querySelectorAll('input')[rowNumber];
+  
+    // Get the input value
+    var inputValue = inputElement.value;
+  
+    // Save the data to local storage, using a key that includes the row number
+    localStorage.setItem('taskData_' + rowNumber, inputValue);
+    console.log(inputValue);
+  }
+  
+  // Function to load data from local storage when the page is loaded
+  function loadData() {
+    // Loop through each row
+    for (var i = 0; i < 9; i++) {
+      // Construct the key for the local storage item
+      var key = 'taskData_' + i;
+  
+      // Get the data from local storage
+      var data = localStorage.getItem(key);
+  
+      // If data exists, set the input value for the corresponding row
+      if (data !== null) {
+        document.querySelectorAll('input')[i].value = data;
+      }
+    }
+  }
+  
+  // Call the loadData function when the page is loaded
+  window.onload = function() {
+    loadData();
+    updateColors();
+  };
 
 

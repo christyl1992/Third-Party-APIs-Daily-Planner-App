@@ -32,19 +32,29 @@
     </header>
     <div class="container">
       <!-- Timeblocks go here -->
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            1 of 3
-          </div>
-          <div class="col-6">
-            2 of 3 (wider)
-          </div>
-          <div class="col">
-            3 of 3
-          </div>
-        </div>
-    </div>
+      <table>
+        <!-- Table header -->
+        <thead>
+          <!-- Header row -->
+          <tr>
+            <th>Time</th>
+            <th>Data</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <!-- Table body -->
+        <tbody>
+          <!-- Table rows go here -->
+          <!-- Repeat this structure for each row -->
+          <tr>
+            <td class="small-col">9:00 AM</td>
+            <td class="large-col"><input type="text" placeholder="Enter data"></td>
+            <td class="small-col"><button onclick="saveData(0)">Save</button></td>
+          </tr>
+          <tr>
+          </tr>
+        </tbody>
+      </table>
 
 
 <!-- Bootstrap -->
@@ -58,3 +68,15 @@
     <script src="script.js"></script>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

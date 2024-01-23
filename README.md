@@ -10,7 +10,7 @@ Image of project: images/Screenshot 2024-01-23 at 22.11.23.png
 
 You can see the planner is laid out, you have the time, you can input your tasks and save them to the local strage.
 
-View the project here: 
+View the project here: https://christyl1992.github.io/Third-Party-APIs-Daily-Planner-App-2/
 
 ## License
 
